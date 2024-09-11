@@ -239,6 +239,8 @@ function docker_cli_prepare_dockerfile() {
 		**/.DS_Store
 	DOCKERIGNORE
 
+ 	run_host_command_logged cat "${SRC}"/.dockerignore
+
 	#############################################################################################################
 	# Prepare some dependencies; these will be used on the Dockerfile
 
@@ -291,6 +293,8 @@ function docker_cli_prepare_dockerfile() {
 		${c}${c_req} rm -rf "${DOCKER_ARMBIAN_TARGET_PATH}/output" "${DOCKER_ARMBIAN_TARGET_PATH}/.tmp" "${DOCKER_ARMBIAN_TARGET_PATH}/cache"
 		${docker_include_dot_git_dir}
 	INITIAL_DOCKERFILE
+ 
+ 	run_host_command_logged cat "${SRC}"/Dockerfile
 	# For debugging: RUN rm -fv /usr/bin/pip3 # Remove pip3 symlink to make sure we're not depending on it; non-Dockers may not have it
 }
 

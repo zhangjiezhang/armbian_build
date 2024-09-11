@@ -585,6 +585,7 @@ function docker_cli_launch() {
 	fi
 
 	display_alert "-----------------Relaunching in Docker after ${SECONDS}s------------------" "here comes the 🐳" "info"
+ 	display_alert "docker command" "docker run ${DOCKER_ARGS[@]} ${DOCKER_ARMBIAN_INITIAL_IMAGE_TAG} /bin/bash ${DOCKER_ARMBIAN_TARGET_PATH}/compile.sh ${ARMBIAN_CLI_FINAL_RELAUNCH_ARGS[@]}" "info"
 
 	local -i docker_build_result
 	if docker run "${DOCKER_ARGS[@]}" "${DOCKER_ARMBIAN_INITIAL_IMAGE_TAG}" /bin/bash "${DOCKER_ARMBIAN_TARGET_PATH}/compile.sh" "${ARMBIAN_CLI_FINAL_RELAUNCH_ARGS[@]}"; then
